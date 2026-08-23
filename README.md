@@ -39,5 +39,5 @@ What drives customer churn, and who's at risk?
 ## Files in this repo
 
 - `telco_churn_clean.csv` — cleaned dataset used for the dashboard
-- `data_cleaning.py` — Python script used to clean and prepare the raw data
+- `telco_churn_cleanup.ipynb` — Jupyter notebook used to clean and prepare the raw data
 - `dashboard_preview.png` — static preview image of the dashboard
