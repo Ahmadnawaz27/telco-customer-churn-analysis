@@ -39,6 +39,26 @@ Rather than duplicating the Tableau dashboard, this version answers a different 
 
 ---
 
+## Methodology: how the risk threshold was derived
+
+The dataset includes a pre-built `Churn Score` field (0-100). Rather than treating it as a given, its predictive strength was tested directly:
+
+- Calculated the point-biserial correlation between `Churn Score` and actual churn outcome: **r = 0.665**, meaningfully stronger than any single categorical factor in the dataset (contract type, tenure band, etc.)
+- Tested several candidate thresholds for defining "high-risk" customers, checking both the resulting group size and its actual churn rate at each cutoff:
+
+| Threshold | Customers flagged | % of base | Actual churn rate in group |
+|---|---|---|---|
+| ≥ 60 | 3,640 | 51.7% | 51.3% |
+| ≥ 70 | 2,559 | 36.3% | 62.9% |
+| **≥ 75** | **1,880** | **26.7%** | **72.3%** |
+| ≥ 80 | 1,201 | 17.1% | 92.0% |
+| ≥ 85 | 820 | 11.6% | 100.0% |
+
+- Chose **≥ 75** as the working threshold: it captures a focused, actionable segment (27% of the base) while keeping precision high (72% of flagged customers actually churn), rather than flagging over half the customer base (as ≥60 would) or an unrealistically small group (as ≥85 would)
+- This threshold feeds
+
+---
+
 ## Dataset
 
 [IBM Telco Customer Churn dataset](https://www.kaggle.com/datasets/blastchar/telco-customer-churn), 7,043 customers, 33 original fields covering account details, services subscribed, billing, and churn outcome/reason.
