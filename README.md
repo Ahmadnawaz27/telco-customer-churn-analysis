@@ -55,7 +55,7 @@ The dataset includes a pre-built `Churn Score` field (0-100). Rather than treati
 | ≥ 85 | 820 | 11.6% | 100.0% |
 
 - Chose **≥ 75** as the working threshold: it captures a focused, actionable segment (27% of the base) while keeping precision high (72% of flagged customers actually churn), rather than flagging over half the customer base (as ≥60 would) or an unrealistically small group (as ≥85 would)
-- This threshold feeds
+- This threshold feeds the High Risk Customers and Revenue at Risk KPIs.
 
 ---
 
