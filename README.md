@@ -65,9 +65,18 @@ The dataset includes a pre-built `Churn Score` field (0-100). Rather than treati
 
 ## Tools
 
+**Tech stack:** Python · Pandas · Tableau · Power BI · DAX
+
 - **Python (Pandas)** — data cleaning: handled nulls, dropped non-analytical columns, engineered a tenure-band feature
 - **Tableau Public** — descriptive dashboard: 8 visualizations including stacked bar charts, a line chart, a heat map, and a grouped pie chart
 - **Power BI Desktop** — risk-focused dashboard: KPI cards, Key Influencers AI visual, Churn Score distribution, and a revenue-at-risk framing built on DAX measures
+
+## What I Learned
+
+- Building the same analysis in two tools surfaced real trade-offs, Tableau's table calculations handle "percent within a group" natively, while Power BI requires writing the DAX yourself, more setup, but more transparent and reusable once written
+- A pre-built score in a dataset (`Churn Score`) shouldn't be trusted blindly, testing it against actual outcomes at several thresholds turned "seems useful" into a defensible, specific decision (≥75, 72.3% precision)
+- Power BI's Key Influencers feature independently re-derived most of my manual findings and surfaced one I'd missed (dependents), a useful way to sanity-check analysis rather than just trust it
+- Design consistency (one accent color, uniform card borders, one color always meaning "churned") mattered more to how professional the dashboard looked than any individual chart choice
 
 ## Files in this repo
 
